@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="iot-room-climate-regulator:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="iot-room-climate-regulator.war">
+      <element id="artifact" artifact-name="iot-room-climate-regulator:war exploded" />
+    </root>
+  </artifact>
+</component>
