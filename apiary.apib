@@ -6,11 +6,20 @@ HOST: https://iot-room-climate-regulator.herokuapp.com/webapi
 IOT Room Climate Regulator. Receives tempreture regulation task and reserves 
 it on the same level. Also provides logging of process.
 
+## Ping [/ping]
+
+### Ping service [GET]
+
+Returns `200` if service is alive.
+
++ Response 200 (application/json)
+
+
 ## Floor Temperature [/houses/{house_id}/floors/{floor_id}]
 
 + Parameters
-    + house_id (required, string, `"12"`) ... House identifier
-    + floor_id (required, string, `"3"`) ... Floor identifier
+    + house_id (required, string, `12`) ... House identifier
+    + floor_id (required, string, `3`) ... Floor identifier
 
 ### Add new regulation task [POST]
 
@@ -32,7 +41,7 @@ Returns `200` status code if regulation task is accepted otherwise `404`
 ## All logs [/houses/{house_id}/logs]
 
 + Parameters
-    + house_id (required, string, `"12"`) ... House identifier
+    + house_id (required, string, `12`) ... House identifier
 
 ### Get all logs [GET]
 
@@ -56,7 +65,7 @@ The `time` is timestamp when the `action` was performed.
 ## Filtered logs by time [/houses/{house_id}/logs{?start_time,end_time}]
 
 + Parameters
-    + house_id (required, string, `"12"`) ... House identifier
+    + house_id (required, string, `12`) ... House identifier
     + start_time (required, integer, `1465501630`) ... Start timestamp 
     + end_time (required, integer, `1465501660`) ... End timestamp
 
@@ -82,13 +91,13 @@ The `time` is timestamp when the `action` was performed.
 ## Certain number of logs [/houses/{house_id}/logs{?max_num,sort}]
 
 + Parameters
-    + house_id (required, string, `"12"`) ... House identifier
+    + house_id (required, string, `12`) ... House identifier
     + max_num (required, integer, `100`) ... Number of entries to return.
-    + sort (required, string, `"asc"`) ... Sorting order
+    + sort (required, string, `asc`) ... Sorting order
 
 ### Get chunk of logs [GET]
     
-Returns the certain number of logs depending on sorting order (`"asc" / "desc"`)
+Returns the certain number of logs depending on sorting order (`asc / desc`)
 
 The `time` is timestamp when the `action` was performed.
 
