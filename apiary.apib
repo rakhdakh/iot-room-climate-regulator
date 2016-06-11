@@ -26,90 +26,14 @@ Returns `200` if service is alive.
 Returns `200` status code if regulation task is accepted otherwise `404`
 
 `temperature` is a floating point number indicating desired temperature.
-`period` is an integer indicating time period while regulation task is active. 
+`period` is an integer indicating time period in msecs while regulation task is active. 
 
 + Request (application/json)
 
         {
-            "temperature": 22,
+            "temperature": 22.5,
             "period": 50000
         }
         
 + Response 200 (application/json)
 + Response 404 (application/json)
-
-## All logs [/houses/{house_id}/logs]
-
-+ Parameters
-    + house_id (required, string, `12`) ... House identifier
-
-### Get all logs [GET]
-
-Returns the list of all logs.
-
-The `time` is timestamp when the `action` was performed.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "time": 1465501647,
-                "action": "Dummy Action"
-            },
-            {
-                "time": 1465501657,
-                "action": "Dummy Action"
-            }
-        ]
-
-## Filtered logs by time [/houses/{house_id}/logs{?start_time,end_time}]
-
-+ Parameters
-    + house_id (required, string, `12`) ... House identifier
-    + start_time (required, integer, `1465501630`) ... Start timestamp 
-    + end_time (required, integer, `1465501660`) ... End timestamp
-
-### Get logs in interval [GET]
-    
-Returns the list of logs in time interval.
-
-The `time` is timestamp when the `action` was performed.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "time": 1465501647,
-                "action": "Dummy Action"
-            },
-            {
-                "time": 1465501657,
-                "action": "Dummy Action"
-            }
-        ]
-        
-## Certain number of logs [/houses/{house_id}/logs{?max_num,sort}]
-
-+ Parameters
-    + house_id (required, string, `12`) ... House identifier
-    + max_num (required, integer, `100`) ... Number of entries to return.
-    + sort (required, string, `asc`) ... Sorting order
-
-### Get chunk of logs [GET]
-    
-Returns the certain number of logs depending on sorting order (`asc / desc`)
-
-The `time` is timestamp when the `action` was performed.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "time": 1465501647,
-                "action": "Dummy Action"
-            },
-            {
-                "time": 1465501657,
-                "action": "Dummy Action"
-            }
-        ]
